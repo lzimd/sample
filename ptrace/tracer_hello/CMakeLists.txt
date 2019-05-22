@@ -1,0 +1,22 @@
+include_directories(${PROJECT_SOURCE_DIR}/libdebugger)
+link_directories(${PROJECT_BINARY_DIR}/lib)
+
+add_executable(simple_tracer_hello simple_tracer_hello.cpp)
+
+add_executable(simple_tracer_attach simple_tracer_attach.cpp)
+target_link_libraries(simple_tracer_attach debugger)
+
+add_executable(simple_tracer simple_tracer.cpp)
+target_link_libraries(simple_tracer debugger)
+
+add_executable(simple_tracer_syscall simple_tracer_syscall.cpp)
+target_link_libraries(simple_tracer_syscall debugger)
+
+add_executable(simple_tracer_regs simple_tracer_regs.cpp)
+target_link_libraries(simple_tracer_regs debugger)
+
+add_executable(simple_tracer_inject simple_tracer_inject.cpp)
+target_link_libraries(simple_tracer_inject debugger)
+
+add_executable(simple_tracer_step simple_tracer_step.cpp)
+target_link_libraries(simple_tracer_step debugger)

@@ -1,0 +1,38 @@
+lib
+    - libbfd
+    - libdwarf
+
+objdump
+#  --dwarf[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,
+#          =frames-interp,=str,=loc,=Ranges,=pubtypes,
+#          =gdb_index,=trace_info,=trace_abbrev,=trace_aranges,
+#          =addr,=cu_index,=links,=follow-links]
+
+-------------------------------------------------------------------------------
+25 .debug_aranges 00000030  0000000000000000  0000000000000000  0000305b  2**0
+                CONTENTS, READONLY, DEBUGGING
+26 .debug_info   00000347  0000000000000000  0000000000000000  0000308b  2**0
+                CONTENTS, READONLY, DEBUGGING
+27 .debug_abbrev 00000119  0000000000000000  0000000000000000  000033d2  2**0
+                CONTENTS, READONLY, DEBUGGING
+28 .debug_line   00000146  0000000000000000  0000000000000000  000034eb  2**0
+                CONTENTS, READONLY, DEBUGGING
+29 .debug_str    00000290  0000000000000000  0000000000000000  00003631  2**0
+                CONTENTS, READONLY, DEBUGGING
+-------------------------------------------------------------------------------
+26 .debug_aranges 00000020  00000000  00000000  00001037
+                 CONTENTS, READONLY, DEBUGGING
+27 .debug_pubnames 00000028  00000000  00000000  00001057
+                 CONTENTS, READONLY, DEBUGGING
+28 .debug_info   000000cc  00000000  00000000  0000107f
+                 CONTENTS, READONLY, DEBUGGING
+29 .debug_abbrev 0000008a  00000000  00000000  0000114b
+                 CONTENTS, READONLY, DEBUGGING
+30 .debug_line   0000006b  00000000  00000000  000011d5
+                 CONTENTS, READONLY, DEBUGGING
+31 .debug_frame  00000044  00000000  00000000  00001240
+                 CONTENTS, READONLY, DEBUGGING
+32 .debug_str    000000ae  00000000  00000000  00001284
+                 CONTENTS, READONLY, DEBUGGING
+33 .debug_loc    00000058  00000000  00000000  00001332
+                 CONTENTS, READONLY, DEBUGGING
