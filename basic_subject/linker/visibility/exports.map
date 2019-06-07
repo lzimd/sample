@@ -1,0 +1,6 @@
+{
+global:
+  func_DEFAULT;
+  invoke;
+local: *;
+};

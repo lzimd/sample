@@ -1,0 +1,21 @@
+# bfd/elf64-x86-64.c : 
+#   - elf_backend_check_relocs/elf_x86_64_check_relocs
+#   - elf_backend_finish_dynamic_sections/elf_x86_64_finish_dynamic_sections
+#   - elf_backend_finish_dynamic_symbol/elf_x86_64_finish_dynamic_symbol
+#   - elf_backend_relocate_section/elf_x86_64_relocate_section
+# bfd/reloc.c : 
+#   - _bfd_final_link_relocate
+
+# bfd_elf_final_link
+
+以下从 elf64-x86-64.c 复制, 只言片语不成体系, 更详细还是要看源码.
+
+# R_X86_64_PLT32
+#  Resolve a PLT32 reloc against a local symbol directly, without using the procedure linkage table.	
+#  We didn't make a PLT entry for this symbol.  This happens when statically linking PIC code, or when using -Bsymbolic (Do not link against shared libraries).
+
+# For non-shared object, we can't use .got.plt, which contains the real function addres if we need pointer equality.  We load the GOT entry with the PLT entry.
+
+# Don't complain about -fPIC if the symbol is undefined when building executable unless it is unresolved weak symbol, references a dynamic definition in PIE or -z nocopyreloc is used.
+
+# This symbol is local, or marked to become local. When relocation overflow check is disabled, we convert R_X86_64_32 to dynamic R_X86_64_RELATIVE.

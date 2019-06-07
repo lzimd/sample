@@ -1,0 +1,14 @@
+.vscode/*
+
+*.i
+*.S
+*.o
+*.a
+*.so
+*.out
+
+*.elf
+peda-*.txt
+*history
+
+!relocation/relocating_sections/*.S
