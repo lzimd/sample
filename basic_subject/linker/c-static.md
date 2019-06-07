@@ -9,6 +9,7 @@
 |auto, register |function execution | (none) |
 
 全局变量, 默认是 extern 存储
+
 局部变量, 默认是 auto 存储
 
 ## static 用法
@@ -23,7 +24,9 @@
 符号表 BIND 属性为 LOCAL
 
 已经初始化的 static 变量放到 .data section
+
 未初始化的 static 变量放到 .bss section
+
 初始化为 0 的 static 变量放到 .bss section
 
 ```plain

@@ -2,29 +2,32 @@
 
 位置无关代码
 
-动态库可以被加载到任何地址并正确运行.
+动态库可以被加载到任何地址并正确运行。
 
-模块内的 数据引用 和 函数调用, 可使用 相关地址引用. 模块外的 数据引用 和 函数调用, 要用一些技巧.
+模块内的 数据引用 和 函数调用，可使用 相关地址引用。模块外的 数据引用 和 函数调用，要用一些技巧。
 
 ## 数据引用
 
-GOT, 全局偏移量表, Golbal Offset Table, 可读可写, runtime 修改为 重定向地址.
+GOT, 全局偏移量表, Golbal Offset Table, 可读可写, runtime 修改为 重定向地址。
 
-每个被引用的全局数据目标都有一个 GOT 条目, 每个条目有重定位记录.
-每一个引用全局目标的目标模块得有自己的 GOT.
+每个被引用的全局数据目标都有一个 GOT 条目, 每个条目有重定位记录。
+每一个引用全局目标的目标模块得有自己的 GOT。
 
 ## 函数调用
 
-一般 Lazy relocations, 但目前有些 toolchain 会 `-z now -z relro` 做 完全RELRO, 导致惰性解析禁用.
+一般 Lazy relocations, 但目前有些 toolchain 会 `-z now -z relro` 做 完全RELRO, 导致惰性解析禁用。
 
-PLT, 过程链接表, Procedure Linkage Table, 当一个外部符号被调用时, PLT 去引用 GOT 中的其符号对应的绝对地址, 然后转入并执行.
-GOT, 全局偏移量表, Golbal Offset Table, 第一次是空, 所以会跳回func@PLT+2, 使用 PLT[0] call dynamic linkerq 去解析符号, 并写回GOT, 第二次PLT再调用, 直接转去执行.
+PLT, 过程链接表, Procedure Linkage Table, 当一个外部符号被调用时, PLT 去引用 GOT 中的其符号对应的绝对地址, 然后转入并执行。
 
+GOT, 全局偏移量表, Golbal Offset Table, 第一次是空, 所以会跳回func@PLT+2, 使用 PLT[0] call dynamic linkerq 去解析符号, 并写回GOT, 第二次PLT再调用, 直接转去执行。
+
+```plains
 GOT [0] addr of .dynamic
 GOT [1] addr of reloc, addr of link_map
 GOT [2] addr of dynamic linker, addr of _dl_runtime_resolve
 
 PLT [0] call dynamic linker
+```
 
 ## example
 

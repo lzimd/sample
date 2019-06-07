@@ -19,6 +19,7 @@ typedef struct
 ### AMD x86-64 Relocation Types
 
 > 0.99.6 - 2012 <http://refspecs.linuxfoundation.org/elf/x86_64-abi-0.99.pdf>
+>
 > 1.0 - 2018 <https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf>
 >
 > Table 4.10: Relocation Types

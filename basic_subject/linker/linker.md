@@ -41,18 +41,19 @@
 Type: PROGBITS  1  Program data
 
 Section:
-.data       放 已经初始化的 全局变量 和 静态变量
-.bss        放 未初始化的 静态变量 和 全局变量, 以及所有被初始化为 0 的静态变量 和 全局变量, 不占空间
-.rodata     放 常量字符串之类的
-.data1      放 已经初始化的 静态变量, compiler 相关
-.rodata1
+
+- .data       放 已经初始化的 全局变量 和 静态变量
+- .bss        放 未初始化的 静态变量 和 全局变量, 以及所有被初始化为 0 的静态变量 和 全局变量, 不占空间
+- .rodata     放 常量字符串之类的
+- .data1      放 已经初始化的 静态变量, compiler 相关
+- .rodata1
 
 未初始化的全局变量, 放到 common block 或 .bss section
 
 > <http://www.wowotech.net/basic_subject/compile-link-load.html>
 >
 > 虽然 static 的符号在源代码中没有初始化,
-> 不过根据c标准的定义, 被 static 描述的对象需要在程序启动之前被初始化, 指针类型的被初始化成NULL, int被初始化成 0, 
+> 不过根据c标准的定义, 被 static 描述的对象需要在程序启动之前被初始化, 指针类型的被初始化成NULL, int被初始化成 0,
 > 这样的行为是和 .bss section 的行为类似的
 
 .bss
@@ -72,7 +73,7 @@ Section:
 > 也就是说, 在两个c文件中都定义了名字一样的未初始化的全局变量是不会引起编译错误的,
 > 编译器在编译的时候会把未初始化的全局变量放入到 common block 中而不是 .bss section.
 >
-> 假如放入到.bss section, 就意味着已经分配了该符号的地址, runtime 的时候会占用内存
+> 假如放入到.bss section, 就意味着已经分配了该符号的地址, runtime 的时候会占用内存，
 > 那么linker 在合并 .bss section 的时候就会发现重复定义的符号了
 >
 
